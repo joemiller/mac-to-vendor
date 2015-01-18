@@ -1,0 +1,13 @@
+# a partial slice of the official vendor list file for testing purposes
+
+0050C2000       T.L.S. Corp.
+0050C2001       JMBS Developpements
+0050C2002       Integrated Automation Solutions
+0050C2003       Microsoft
+0050C2004       SCI Technology Inc.
+0050C2005       GD California, Inc.
+0050C2006       Project Management Enterprises, Inc.
+0050C2007       Clive Green & Co. Ltd.
+0050C2008       Portable Add-Ons
+0050C2009       Datakinetics Ltd.
+0050C200A       Tharsys

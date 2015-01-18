@@ -20,9 +20,9 @@ describe 'MacToVendor' do
     last_response.body.chomp.must_equal 'QEMU'
   end
 
-  it 'returns a 404 for unknown MAC address' do
+  it 'returns empty string for unknown MAC address' do
     get '/bb:aa:cc:dd:ee:ff'
-    last_response.status.must_equal 404
+    last_response.status.must_equal 200
     last_response.body.chomp.must_equal 'unknown'
   end
 

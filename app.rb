@@ -16,7 +16,7 @@ end
 # routes
 get '/' do
   body <<-EOF
-    #{@foo} MAC Address vendor lookup service.
+    MAC Address vendor lookup service.
     Usage:
        /00:11:22:33:44:55
        /001122334455
@@ -31,11 +31,8 @@ get '/:mac' do
   end
 
   vendor = settings.db.lookup(mac)
-  if vendor
-    status 200
-    body vendor + "\n"
-  else
-    status 404
-    body "unknown\n"
+  if vendor.nil?
+    vendor = 'unknown'
   end
+  body "#{vendor}\n"
 end

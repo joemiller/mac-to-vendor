@@ -22,13 +22,12 @@ class MacAddressDB
 
   # given a MAC address, return the vendor (string) that it belongs to.
   # returns nil if no match.
+  # search through the MAC database looking for most-specific to least-specific matches.
   # mac address format is flexible: eg: '00:22:4d:88:58:a0', '00224d8858a0', etc.
   def lookup(mac)
     # upper-case mac addr and strip colons
     mac = mac.gsub(/:/, '').upcase
     vendor = nil
-
-    # search through the MAC database looking for most-specific to least-specific matches
 
     len = mac.length
     len.times do |x|

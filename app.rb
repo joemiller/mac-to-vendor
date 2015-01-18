@@ -1,10 +1,12 @@
 require 'sinatra'
+require 'sinatra/cross_origin'
 require_relative 'mac_address_db'
 
 # init and load db
 configure do
-  set :db, MacAddressDB.new
+  enable :cross_origin
 
+  set :db, MacAddressDB.new
   Dir['db/**'].each do |f|
     settings.db.load_data(f)
   end

@@ -11,13 +11,13 @@ describe 'MacToVendor' do
   it 'should return a short introduction on the root route' do
     get '/'
     last_response.status.must_equal 200
-    last_response.body.must_include 'MAC Address vendor lookup service'
+    last_response.body.must_include 'MAC address vendor lookup service'
   end
 
   it 'returns a vendor string for a known MAC address' do
     get '/52:54:00:11:22:aa'
     last_response.status.must_equal 200
-    last_response.body.chomp.must_equal 'QEMU'
+    last_response.body.chomp.must_equal 'QEMU Virtual NIC'
   end
 
   it 'returns empty string for unknown MAC address' do

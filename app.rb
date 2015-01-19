@@ -17,10 +17,12 @@ end
 get '/' do
   base_url = request.env['rack.url_scheme'] + '://' + request.env['HTTP_HOST']
   body <<-EOF
-    MAC Address vendor lookup service.
-    Examples:
-       curl #{base_url}/00:11:22:33:44:55
-       curl #{base_url}/001122334455
+MAC address vendor lookup service.
+
+Examples:
+
+curl #{base_url}/00:11:22:33:44:55
+curl #{base_url}/001122334455
   EOF
 end
 

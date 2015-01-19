@@ -26,6 +26,8 @@ Examples:
 
 curl #{base_url}/00:11:22:33:44:55
 curl #{base_url}/001122334455
+
+Source: https://github.com/joemiller/mac-to-vendor
   EOF
 end
 

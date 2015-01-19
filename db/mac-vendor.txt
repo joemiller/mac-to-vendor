@@ -39,8 +39,8 @@
 #
 
 # From nmap Debian bug report #369681 dated 31 May 2006
-525400	QEMU
-B0C420	Bochs
+525400	QEMU Virtual NIC
+B0C420	Bochs Virtual NIC
 
 # La Dee Dee, 1, 2, 3. VRRP ain't free.
 00005E0001	CARP (last octet is VHID)
@@ -55,3 +55,7 @@ B0C420	Bochs
 
 # Ethernet broadcast address
 FFFFFFFFFFFF	Broadcast
+
+# these taken from nmap-mac-prefixes (nmap)
+DEADCA	PearPC Virtual NIC
+00FFD1	Cooperative Linux virtual NIC

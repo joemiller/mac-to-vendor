@@ -18,6 +18,7 @@ end
 # routes
 
 get '/' do
+  content_type 'text/plain'
   base_url = request.env['rack.url_scheme'] + '://' + request.env['HTTP_HOST']
   body <<-EOF
 MAC address vendor lookup service.
@@ -32,6 +33,7 @@ Source: https://github.com/joemiller/mac-to-vendor
 end
 
 get '/:mac' do
+  content_type 'text/plain'
   mac = params[:mac]
 
   if mac.length > 17 or mac.length < 2

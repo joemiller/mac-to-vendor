@@ -6,7 +6,7 @@ Simple web service for looking up MAC addresses to vendors. (Ruby Sinatra app)
 Example:
 
 ```
-$ curl https://whispering-shelf-4150.herokuapp.com/f8:27:93:0c:aa:bb
+$ curl https://mac-to-vendor.herokuapp.com/f8:27:93:0c:aa:bb
 Apple, Inc.
 ```
 

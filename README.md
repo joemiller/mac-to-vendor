@@ -3,6 +3,10 @@ mac-to-vendor lookup service
 
 Simple web service for looking up MAC addresses to vendors. (Ruby Sinatra app)
 
+The goal is to provide the most complete MAC vendor database possible, including
+the official registrations managed by IEEE but also to include common but
+unofficial prefixes such as those used by hypervisors.
+
 Example:
 
 ```
@@ -18,7 +22,7 @@ database files in the `db` sub-directory is borrowed from the `arp-scan` project
 Additionally some unregistered MAC prefixes were taken from `nmap` as well.
 
 To update the official/registered database `ieee-oui.txt` file, use the `get-oui`
-script from the arp-scan package.
+script from the arp-scan package. https://github.com/royhills/arp-scan/blob/master/get-oui
 
 Add unregistered types to the `mac-vendors.txt` file.
 

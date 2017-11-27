@@ -22,7 +22,7 @@ describe 'MacAddressDB' do
 
   it 'returns nil when looking up an unknown MAC addr' do
     vendor = @db.lookup('99:99:99:99:99:99')
-    vendor.must_equal nil
+    assert_nil vendor
   end
 
 end

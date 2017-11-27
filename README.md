@@ -21,10 +21,19 @@ The goal is to provide the most complete MAC database possible. The format of th
 database files in the `db` sub-directory is borrowed from the `arp-scan` project.
 Additionally some unregistered MAC prefixes were taken from `nmap` as well.
 
-To update the official/registered database `ieee-oui.txt` file, use the `get-oui`
+### Updating IEEE database
+
+To update the official database `ieee-oui.txt` file, use the `get-oui`
 script from the arp-scan package. https://github.com/royhills/arp-scan/blob/master/get-oui
 
-Add unregistered types to the `mac-vendors.txt` file.
+```shell
+$ perl get-out
+$ mv ieee-out.txt ./db/ieee-oui.txt
+```
+
+### Manual / Unofficial MAC database
+
+For manual entries, add to the `./db/mac-vendors.txt` file.
 
 Usage
 -----

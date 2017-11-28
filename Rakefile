@@ -21,4 +21,9 @@ end
 desc 'Fetch and update IEEE databases'
 task :update => [:get_oui, :get_iab]
 
+desc 'deploy master branch to heroku'
+task :deploy do
+  sh "git push heroku master"
+end
+
 task :default => :test

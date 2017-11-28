@@ -24,9 +24,10 @@ Additionally some unregistered MAC prefixes were taken from `nmap` as well.
 ### Updating IEEE database
 
 To update the official database `ieee-oui.txt` file, use the `get-oui`
-script from the arp-scan package. https://github.com/royhills/arp-scan/blob/master/get-oui
+script from the arp-scan package and place it in the current directory. https://github.com/royhills/arp-scan/blob/master/get-oui
 
 ```shell
+$ bundle exec rake update
 $ perl get-out
 $ mv ieee-out.txt ./db/ieee-oui.txt
 ```

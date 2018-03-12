@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rack', '~> 1.6.2'
+gem 'rack-protection', '~> 1.5.5'
 gem 'sinatra', '~> 1.4.5'
 gem "sinatra-cross_origin", "~> 0.3.1"
 gem 'unicorn'

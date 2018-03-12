@@ -28,9 +28,9 @@ script from the arp-scan package and place it in the current directory. https://
 
 ```shell
 $ bundle exec rake update
-$ perl get-out
-$ mv ieee-out.txt ./db/ieee-oui.txt
 ```
+
+Commit the updated `./db/*` files to git.
 
 ### Manual / Unofficial MAC database
 

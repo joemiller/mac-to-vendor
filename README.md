@@ -9,8 +9,9 @@ unofficial prefixes such as those used by hypervisors.
 
 Example:
 
-```
+```console
 $ curl https://mac-to-vendor-yps2oxobta-uc.a.run.app/f8:27:93:0c:aa:bb
+
 Apple, Inc.
 ```
 
@@ -26,8 +27,8 @@ Additionally some unregistered MAC prefixes were taken from `nmap` as well.
 To update the official database `ieee-oui.txt` file, use the `get-oui`
 script from the arp-scan package and place it in the current directory. https://github.com/royhills/arp-scan/blob/master/get-oui
 
-```shell
-$ bundle exec rake update
+```console
+bundle exec rake update
 ```
 
 Commit the updated `./db/*` files to git.
@@ -77,4 +78,4 @@ TODO
 Author
 ------
 
-Joe Miller, @miller_joe, joemiller(github)
+Joe Miller, @miller_joe, joemiller (github)

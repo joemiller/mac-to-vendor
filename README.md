@@ -10,7 +10,7 @@ unofficial prefixes such as those used by hypervisors.
 Example:
 
 ```
-$ curl https://mac-to-vendor.herokuapp.com/f8:27:93:0c:aa:bb
+$ curl https://mac-to-vendor-yps2oxobta-uc.a.run.app/f8:27:93:0c:aa:bb
 Apple, Inc.
 ```
 
@@ -39,7 +39,7 @@ For manual entries, add to the `./db/mac-vendors.txt` file.
 Usage
 -----
 
-- Use the hosted service: `curl https://whispering-shelf-4150.herokuapp.com/`
+- Use the hosted service: `curl https://mac-to-vendor-yps2oxobta-uc.a.run.app/`
 - Run your own: `bundle install; foreman start`
 
 CORS Headers
@@ -60,6 +60,19 @@ Contributing
 2. Make branch
 3. Add tests.
 4. Send PR
+
+Deployment
+----------
+
+- CI/CD: Google Cloud Build (`./cloudbuild.yaml`)
+- Runtime/Hosting: Google Cloud Run (https://mac-to-vendor-yps2oxobta-uc.a.run.app)
+
+TODO
+----
+
+- [x] move to google cloud build + cloud run, retire heroku app (notes from this effort in `./CLOUD-RUN-NOTES.md`)
+- [ ] move the fetching and process of the mac db's in `./db/` to the CI process
+- [ ] Pick a more efficient way to store and load the MAC database. Current cold startup on google cloud-run is only about 5-7seconds though.
 
 Author
 ------

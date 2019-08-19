@@ -5,6 +5,9 @@ require 'sinatra/cross_origin'
 require 'mac_address_db'
 
 configure do
+  set :bind, "0.0.0.0"
+  set :port, 8080
+
   enable :cross_origin
 
   # @TODO(joe): setting the db on the global config object smells funny.

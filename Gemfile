@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 ruby "~> 2.6"
 
-gem 'rack', '~> 1.6.12'
-gem 'rack-protection', '~> 1.5.5'
-gem 'sinatra', '~> 1.4.5'
+gem 'rack', '~> 2.2.0'
+gem 'rack-protection', '~> 2.1.0'
+gem 'sinatra', '~> 2.1.0'
 gem "sinatra-cross_origin", "~> 0.3.1"
 
 group :development do

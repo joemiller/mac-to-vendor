@@ -12,12 +12,12 @@ describe 'MacAddressDB' do
   end
 
   it 'returns the size of the database' do
-    @db.size.must_equal 18
+    _(@db.size).must_equal 18
   end
 
   it 'returns the vendor name for a known MAC addr' do
     vendor = @db.lookup('52:54:00:11:22:aa')
-    vendor.must_equal 'QEMU'
+    _(vendor).must_equal 'QEMU'
   end
 
   it 'returns nil when looking up an unknown MAC addr' do

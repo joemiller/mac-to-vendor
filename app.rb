@@ -6,7 +6,7 @@ require_relative 'lib/mac_address_db'
 configure do
   set :bind, "0.0.0.0"
   set :port, 8080
-  set :db_file, 'db/macaddrs'
+  set :db_file, 'db/macaddrs.sqlite'
 
   enable :cross_origin
 

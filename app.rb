@@ -1,25 +1,20 @@
-$: << File.join(File.dirname(__FILE__), 'lib')
-
 require 'sinatra'
 require 'sinatra/cross_origin'
-require 'mac_address_db'
+
+require_relative 'lib/mac_address_db'
 
 configure do
   set :bind, "0.0.0.0"
   set :port, 8080
+  set :db_file, 'db/macaddrs'
 
   enable :cross_origin
 
   # @TODO(joe): setting the db on the global config object smells funny.
-  set :db, MacAddressDB.new
-  Dir['db/**'].each do |f|
-    settings.db.load_data(f)
-  end
+  set :db, MacAddressDB.new(settings.db_file)
 end
 
-
 # routes
-
 get '/' do
   content_type 'text/plain'
   base_url = request.env['rack.url_scheme'] + '://' + request.env['HTTP_HOST']

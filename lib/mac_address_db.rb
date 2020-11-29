@@ -1,7 +1,17 @@
+# TODO: consider refactoring to use wireshark's curated 'manuf' file: https://gitlab.com/wireshark/wireshark/raw/master/manuf
+
+require 'dbm'
+
 class MacAddressDB
 
-  def initialize
-    @db = {}
+  def initialize(filename)
+    @filename = filename
+    @db = DBM.open(@filename, 0644, DBM::WRCREAT)
+  end
+
+  def reset
+    @db.close
+    @db = DBM.open(@filename, 0644, DBM::NEWDB)
   end
 
   # load data from a MAC address database txt file. Data is cumulatively added if
@@ -9,7 +19,7 @@ class MacAddressDB
   def load_data(filename)
     File.readlines(filename).each do |line|
       # prevent 'invalid byte sequence in UTF-8' errors by forcing encoding
-      line = line.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
+      # line = line.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
       # strip comments
       line = line.chomp.gsub(/(#.+)$/, '').strip
 

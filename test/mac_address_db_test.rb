@@ -5,10 +5,14 @@ fixture_dir = File.join(File.dirname(__FILE__), 'fixtures')
 describe 'MacAddressDB' do
 
   before do
-    @db = MacAddressDB.new
+    @db = MacAddressDB.new('tempdb')
     Dir[File.join(fixture_dir, '**', '*.txt')].each do |f|
       @db.load_data(f)
     end
+  end
+
+  after(:all) do
+    File.unlink('tempdb.db')
   end
 
   it 'returns the size of the database' do

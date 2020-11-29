@@ -1,22 +1,21 @@
-# TODO: consider refactoring to use wireshark's curated 'manuf' file: https://gitlab.com/wireshark/wireshark/raw/master/manuf
-
-require 'dbm'
+require 'sqlite3'
 
 class MacAddressDB
 
   def initialize(filename)
     @filename = filename
-    @db = DBM.open(@filename, 0644, DBM::WRCREAT)
+    setup
   end
 
   def reset
-    @db.close
-    @db = DBM.open(@filename, 0644, DBM::NEWDB)
+    @db.execute('DROP TABLE IF EXISTS vendors')
+    setup
   end
 
   # load data from a MAC address database txt file. Data is cumulatively added if
   # this is called multiple times.
   def load_data(filename)
+    @db.execute('BEGIN')
     File.readlines(filename).each do |line|
       # prevent 'invalid byte sequence in UTF-8' errors by forcing encoding
       # line = line.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
@@ -25,9 +24,11 @@ class MacAddressDB
 
       unless line.empty? or line.nil?
         mac, vendor = line.split(/\t/, 2)
-        @db[mac] = vendor
+        # @db[mac] = vendor
+        @db.execute('REPLACE INTO vendors (addr, vendor) VALUES (?, ?)', [mac, vendor])
       end
     end
+    @db.execute('END')
   end
 
   # given a MAC address, return the vendor (string) that it belongs to.
@@ -43,22 +44,37 @@ class MacAddressDB
     len.times do |x|
       # @TODO(joe): it's probably OK to optimize this by searching in slices of 2 instead of 1
       mac_partial = mac[0, len - x]
-      if @db[mac_partial]
-        vendor = @db[mac_partial]
+      v = @db.get_first_value('SELECT vendor FROM vendors WHERE addr = ?', [mac_partial])
+      if !v.nil?
+        vendor = v
         break
       end
+      # if @db[mac_partial]
+      #   vendor = @db[mac_partial]
+      #   break
+      # end
     end
     vendor
   end
 
   def dump
-    @db.each do |mac, vendor|
-      puts "#{mac}\t#{vendor}"
+    @db.execute('SELECT (addr, vendor) FROM vendors').each do |row|
+      puts "#{row[0]}\t#{row[1]}"
     end
+
   end
 
   # return the number of entries in the MAC database
   def size
-    @db.length
+    @db.get_first_value('SELECT COUNT(*) FROM vendors')
   end
+
+  private
+
+  def setup
+    @db.close if defined?(@db)
+    @db = SQLite3::Database.new(@filename)
+    @db.execute('CREATE TABLE IF NOT EXISTS vendors(addr TEXT UNIQUE, vendor TEXT)')
+  end
+
 end

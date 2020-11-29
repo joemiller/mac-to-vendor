@@ -20,7 +20,7 @@ describe 'MacToVendor' do
     _(last_response.body.chomp).must_equal 'QEMU Virtual NIC'
   end
 
-  it 'returns empty string for unknown MAC address' do
+  it 'returns unknown for unknown MAC address' do
     get '/bb:aa:cc:dd:ee:ff'
     _(last_response.status).must_equal 200
     _(last_response.body.chomp).must_equal 'unknown'

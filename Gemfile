@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "~> 2.7"
+ruby "~> 3.0"
 
 gem 'rack', '~> 2.2.0'
 gem 'rack-protection', '~> 2.1.0'

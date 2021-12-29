@@ -22,7 +22,7 @@ steps:
     args:
       - '-c'
       - |
-        if [[ "$BRANCH_NAME" == "master" ]]; then
+        if [[ "$BRANCH_NAME" == "main" ]]; then
           gcloud beta run deploy \
             mac-to-vendor \
             --image="gcr.io/$PROJECT_ID/mac-to-vendor:$BUILD_ID" \

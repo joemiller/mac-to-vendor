@@ -3,7 +3,7 @@ ruby "~> 3.0"
 
 gem 'rack', '~> 2.2.3'
 gem 'rack-protection', '~> 2.2.0'
-gem 'sinatra', '~> 2.2.0'
+gem 'sinatra', '~> 2.2.3'
 gem "sinatra-cross_origin", "~> 0.3.1"
 gem 'sqlite3', '~> 1.4'
 gem 'webrick'

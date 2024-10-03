@@ -3,10 +3,10 @@ GEM
   specs:
     diff-lcs (1.4.4)
     minitest (5.25.1)
-    mustermann (1.1.1)
+    mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
-    rack (2.2.6.4)
-    rack-protection (2.2.0)
+    rack (2.2.9)
+    rack-protection (2.2.4)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -25,14 +25,14 @@ GEM
       rspec-support (~> 3.9.0)
     rspec-support (3.9.3)
     ruby2_keywords (0.0.5)
-    sinatra (2.2.0)
-      mustermann (~> 1.0)
+    sinatra (2.2.4)
+      mustermann (~> 2.0)
       rack (~> 2.2)
-      rack-protection (= 2.2.0)
+      rack-protection (= 2.2.4)
       tilt (~> 2.0)
     sinatra-cross_origin (0.3.2)
     sqlite3 (1.4.2)
-    tilt (2.0.10)
+    tilt (2.4.0)
     webrick (1.7.0)
 
 PLATFORMS
@@ -46,7 +46,7 @@ DEPENDENCIES
   rack-test
   rake
   rspec
-  sinatra (~> 2.2.0)
+  sinatra (~> 2.2.3)
   sinatra-cross_origin (~> 0.3.1)
   sqlite3 (~> 1.4)
   webrick

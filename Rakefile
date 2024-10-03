@@ -10,12 +10,7 @@ end
 
 desc 'Using the get-oui util from arp-scan, download the latest ieee-oui.txt and ieee-iab.txt from the ieee'
 task :update do
-  # sh "time get-oui -v -f #{File.dirname(__FILE__)}/db/ieee-oui.txt"
-  # sh "time get-iab -v -f #{File.dirname(__FILE__)}/db/ieee-iab.txt"
-  # get-oui/get-iab cannot follow redirects. Workaround by specifying the final URL manually:
-  # https://github.com/royhills/arp-scan/issues/35
-  sh "time get-oui -v -f #{File.dirname(__FILE__)}/db/ieee-oui.txt -u http://standards-oui.ieee.org/oui/oui.txt"
-  sh "time get-iab -v -f #{File.dirname(__FILE__)}/db/ieee-iab.txt -u http://standards-oui.ieee.org/iab/iab.txt"
+  sh "time get-oui -v -f #{File.dirname(__FILE__)}/db/ieee-oui.txt"
 
   db = MacAddressDB.new("#{File.dirname(__FILE__)}/db/macaddrs.sqlite")
   db.reset
